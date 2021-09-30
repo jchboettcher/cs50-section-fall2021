@@ -19,7 +19,7 @@ int main(int argc, char *argv[])
     if (f == NULL)
     {
         printf("Could not read file %s\n", argv[1]);
-        return 1;
+        return 2;
     }
 
     // Check for GIF signature
@@ -38,5 +38,24 @@ int main(int argc, char *argv[])
 
 bool is_gif(FILE *f)
 {
-  
+    // Read bytes in to buffer
+    unsigned char buffer[6];
+    int bytes = fread(buffer, 1, 6, f);
+
+    // Check number of bytes read
+    if (bytes != 6)
+    {
+        return false;
+    }
+
+    // Check each byte
+    for (int i = 0; i < 6; i++)
+    {
+        if (buffer[i] != signature[i])
+        {
+            return false;
+        }
+    }
+
+    return true;
 }

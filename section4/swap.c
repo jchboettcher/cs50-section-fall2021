@@ -9,7 +9,7 @@ int main(void)
 {
     int a = get_int("a = ");
     int b = get_int("b = ");
-    swap( );
+    swap(&a, &b);
     printf("a = %i\n", a);
     printf("b = %i\n", b);
 }
@@ -17,8 +17,7 @@ int main(void)
 // Swaps the values of two integer pointers
 void swap(int *pa, int *pb)
 {
-    // what's wrong with this?
-    int *temp = pa;
-    pa = pb;
-    pb = temp;
+    int temp = *pa;
+    *pa = *pb;
+    *pb = temp;
 }
