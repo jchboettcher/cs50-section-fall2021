@@ -4,8 +4,6 @@
 #include <stdbool.h>
 #include <ctype.h>
 
-// https://github.com/jchboettcher/cs50-section-fall2021
-
 void copy_file(FILE *infile, FILE *outfile);
 
 int main(int argc, char *argv[])
