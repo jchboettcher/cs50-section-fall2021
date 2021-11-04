@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+        <link href="styles.css" rel="stylesheet">
+        <title>Trivia!</title>
+        <script>
+            function checkMultiAnswer(event) {
+                let button = event.target;
+
+
+                if (button.innerHTML == "1 people per 6 sheep") {
+                    // tell user they are correct
+                    button.style.backgroundColor = "green";
+                    button.parentElement.querySelector(".feedback").innerHTML = "Correct!";
+                } else {
+                    // tell user they are incorrect
+                    button.style.backgroundColor = "red";
+                    button.parentElement.querySelector(".feedback").innerHTML = "Incorrect";
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Trivia!</h1>
+        </div>
+
+        <div class="container">
+            <div class="section">
+                <h2>Part 1: Multiple Choice </h2>
+                <hr>
+                <h3>What is the approximate ratio of people to sheep in New Zealand?</h3>
+                <button onclick="checkMultiAnswer(event)">6 people per 1 sheep</button>
+                <button onclick="checkMultiAnswer(event)">3 people per 1 sheep</button>
+                <button onclick="checkMultiAnswer(event)">1 people per 1 sheep</button>
+                <button onclick="checkMultiAnswer(event)">1 people per 3 sheep</button>
+                <button onclick="checkMultiAnswer(event)">1 people per 6 sheep</button>
+                <p class="feedback"></p>
+            </div>
+
+            <div class="section">
+                <h2>Part 2: Free Response</h2>
+                <hr>
+                <h3>In which country is it illegal to own only one guinea pig, as a lone guinea pig might get lonely?</h3>
+                <input type="text" placeholder="Place your answer here"></input>
+                <button onclick="">Check Answer</button>
+                <!--
+                    // event.target -> gives you the target of an event (e.g. the button clicked)
+                    // parentElement -> gives you the parent element
+                    // querySelector -> given a string, gives you the element with that match that string
+                         to query for class use ".class" (e.g. ".feedback")
+                         to query for id use "#id" (e.g. "#answer1")
+                         to query for element type use "element" (e.g. "div")
+                    // querySelectorAll -> given a string, gives you an ARRAY of ALL the elements that match that string
+                    // .innerHTML -> property for the text inside an HTML tag
+                    // .value -> property that gives you the value inside an input element
+                -->
+            </div>
+        </div>
+    </body>
+</html>
